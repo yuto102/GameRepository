@@ -1,30 +1,34 @@
 package entity;
 
-import org.springframework.data.annotation.Id;
+import java.util.Random;
 
 import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
 
 @Entity
 public class Game {
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 
-	public void setDiceResults(int[] diceResults) {
-		// TODO 自動生成されたメソッド・スタブ
-
+	public void setId(Long id) {
+		this.id = id;
 	}
 
 	public int[] getDiceResults() {
-		// TODO 自動生成されたメソッド・スタブ
-		return null;
+		int[] diceResults = new int[3];
+		Random random = new Random();
+		for (int i = 0; i < 3; i++) {
+			diceResults[i] = random.nextInt(6) + 1; // サイコロの出目を1から6の間でランダムに決定
+		}
+		return diceResults;
 	}
 
 	public void setWinner(int winner) {
-		// TODO 自動生成されたメソッド・スタブ
+		// 勝者を設定するためのメソッド
+		// 実際の処理は必要に応じて追加してください
+	}
 
+	public void setDiceResults(int[] diceResults) {
+		// ダイスの結果を設定するためのメソッド
+		// 実際の処理は必要に応じて追加してください
 	}
 
 	// ゲームの情報を追加します（例：プレイヤー情報、結果など）
